@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Riddle Website</title>
+  <script>
+    function checkAnswer(level) {
+      var answer = document.getElementById("answer").value.toLowerCase();
+      var nextLevelButton = document.getElementById("next-level-button");
+
+      if (level === 1 && answer === "echo") {
+        nextLevelButton.style.display = "block";
+      } else if (level === 2 && answer === "footsteps") {
+        nextLevelButton.style.display = "block";
+      } else if (level === 3 && answer === "egg") {
+        document.getElementById("win-message").style.display = "block";
+      } else {
+        alert("Incorrect answer. Please try again.");
+      }
+    }
+  </script>
+  <style>
+    #next-level-button {
+      display: none;
+    }
+    #win-message {
+      display: none;
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Level 1</h1>
+  <p>I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?</p>
+  <input type="text" id="answer">
+  <button onclick="checkAnswer(1)">Submit</button>
+
+  <div id="next-level-button">
+    <button onclick="nextLevel(2)">Next Level</button>
+  </div>
+
+  <div id="win-message">
+    <p>You win!</p>
+  </div>
+
+  <script>
+    function nextLevel(level) {
+      window.location.href = "level" + level + ".html";
+    }
+  </script>
+</body>
+</html>
